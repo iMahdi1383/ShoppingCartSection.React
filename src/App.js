@@ -1,17 +1,31 @@
+import { Component } from 'react';
 import Product from './Components/Product/Product';
 
-const App = () => {
-    return (
-        <div className="container" id="title">
-            <h1>Shopping App</h1>
-            <br />
-            <Product name='React' price="99 $"/>
-            <Product name='Node' price="79 $"/>
-            <Product name='JavaScript' price="59 $">
-                <p>disscount : 15%</p>
-            </Product>
-        </div>
-    );
-};
+class App extends Component {
+    state = {
+        Product: [
+            { name: 'React', price: '99' },
+            { name: 'Node', price: '79' },
+            { name: 'JavaScript', price: '59' },
+        ],
+    };
+    render() {
+        return (
+            <div>
+                <h1> Courses Shop </h1>
+                <br />
+
+                {this.state.Product.map((Product) => {
+                    return (
+                        <Product
+                            name={Product.name}
+                            price={Product.price + '$'}
+                        />
+                    );
+                })}
+            </div>
+        );
+    }
+}
 
 export default App;
