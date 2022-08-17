@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import './App.css'
 import Product from './Components/Product/Product';
 
 class App extends Component {
@@ -37,10 +38,9 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1> Courses Shop </h1>
+      <div className="container">
+      <h1> Courses Shop </h1>
         <hr />
-        <br />
         {
         /* Show Products */
           this.state.products.map((product) => {

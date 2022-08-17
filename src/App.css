@@ -1,0 +1,12 @@
+.container {
+  width: calc(100% - 6rem);
+  height: calc(100vh - 6rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #2d2a2e;
+  margin: 2rem;
+  padding: 1rem;
+  border-radius: 25px;
+}
