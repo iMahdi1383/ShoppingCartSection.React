@@ -3,19 +3,7 @@ import './App.css';
 import Product from './Components/Product/Product';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    /*
-    ? How does bind() work? :
-    #1- Copy this.RefreshPrices()
-    #2- Replace 'this' keyword in the copied function.
-    #3- returns new function with 'this'
-    then assign (=) it to old function.
-    * Also we can use this in class, instead of using 'bind()' method in constructor :
-    * RefreshPrices = () => {}
-    */
-    this.RefreshPrices = this.RefreshPrices.bind(this);
-  }
+
   state = {
     products: [
       { id: '1', name: 'Udemy JS', price: '350' },
@@ -24,9 +12,7 @@ class App extends Component {
     ],
   };
 
-  RefreshPrices() {
-    console.log('App.RefreshPrices().this : ', this);
-    /*
+  RefreshPrices = () => {
     this.setState(
       (prevState) => {
         return ({
@@ -40,7 +26,6 @@ class App extends Component {
         });
       }
     );
-    */
   }
 
   render() {
@@ -56,6 +41,7 @@ class App extends Component {
                 name={product.name}
                 price={product.price + ',000 T'}
                 key={product.id}
+                click={this.RefreshPrices}
               />
             );
           })
