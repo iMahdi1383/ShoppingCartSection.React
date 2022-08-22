@@ -1,0 +1,10 @@
+.btnRefreshProducts {
+  padding: 1rem 2rem;
+  background-color: rgba(252, 252, 244, 0.1);
+  color: #fcfcf4;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.btnRefreshProducts:hover {
+  background-color: rgba(252, 252, 244, 0.2);
+}

@@ -7,3 +7,6 @@ body {
   background-color: #221f22;
   color: #fcfcf4;
 }
+button, input[type="button"] {
+  border: none;
+}
