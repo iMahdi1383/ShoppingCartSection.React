@@ -1,6 +1,52 @@
 .product {
-  border: solid 2px rgba(255,255,255,0.1);
+  background-color: rgba(255, 255, 255, 0.05);
   border-radius: 15px;
-  padding: 2rem 4rem;
-  min-width: 400px;
+  padding: 1.5rem 2rem 3rem 1.5rem;
+  max-width: 100%;
+  position: relative;
+  box-shadow: 0 0.5rem 2.5rem transparent;
+  transition: all 0.15s ease-in-out;
+}
+.product:hover {
+  box-shadow: 0 0.5rem 2.5rem rgba(0, 0, 0, 0.3);
+}
+.product .buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 0.25rem;
+  border-radius: 8px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+button {
+  padding: 0.25rem 0.75rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #b3b395;
+  border-radius: 5px;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+button.delete,
+button.increase {
+  font-size: larger;
+  width: 2.1rem;
+  height: 2rem;
+  padding: 0.5rem;
+}
+.product .buttons button:first-child {
+  margin-left: 0;
+}
+.product .buttons button:last-child {
+  margin-right: 0;
 }

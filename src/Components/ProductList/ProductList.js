@@ -1,36 +1,55 @@
 import { useState } from 'react';
+import Styles from './ProductList.module.css';
 import Product from './Product/Product';
-import BtnRefreshProducts from './BtnRefreshProducts/BtnRefreshProducts';
 
 const ProductList = () => {
   const [products, setProducts] = useState([
-    { id: '1', name: 'Udemy JS', price: '350' },
-    { id: '2', name: 'Udemy HTML', price: '270' },
-    { id: '3', name: 'Udemy React', price: '890' },
+    { id: '1', title: 'Java Script', price: '350', quantity: 3 },
+    { id: '2', title: 'HTML', price: '270', quantity: 2 },
+    { id: '3', title: 'React', price: '890', quantity: 5 },
+    { id: '4', title: 'Node.js', price: '950', quantity: 1 },
   ]);
-  const RefreshPrices = () => {
-    setProducts((prevProducts) => {
-      return prevProducts.map((product) => {
-        return { ...product, price: Math.floor(Math.random() * 1000) };
-      });
-    });
+
+  const DeleteProduct = (id) => {
+    const filteredArray = products.filter((product) => product.id !== id);
+    setProducts(filteredArray);
   };
+  const IncreaseProductQuantity = (id) => {
+    const copyOfProducts = [...products];
+    const selectedProduct = copyOfProducts.find((product) => product.id === id);
+    selectedProduct.quantity++;
+    setProducts(() => copyOfProducts);
+  };
+  const DecreaseProductQuantity = (id) => {
+    const copyOfProducts = [...products];
+    const selectedProduct = copyOfProducts.find((product) => product.id === id);
+    selectedProduct.quantity--;
+    setProducts(() => copyOfProducts);
+    if (selectedProduct.quantity === 0) DeleteProduct(id);
+  };
+  //todo:
+  const ChangeProductTitle = (id, newTitle, HideInputAndShowProductName) => {
+    const copyOfProducts = [...products];
+    const selectedProduct = copyOfProducts.find((product) => product.id === id);
+    selectedProduct.title = newTitle;
+    setProducts(() => copyOfProducts);
+    HideInputAndShowProductName();
+  };
+
   return (
-    <>
+    <div className={Styles.productList}>
       {products.map((product) => {
         return (
           <Product
-            name={product.name}
-            price={product.price + ',000 T'}
+            product={product}
             key={product.id}
+            onIncrease={() => IncreaseProductQuantity(product.id)}
+            onDecrease={() => DecreaseProductQuantity(product.id)}
+            onChangeTitle={ChangeProductTitle}
           />
         );
       })}
-      <BtnRefreshProducts
-        title={'Refresh Prices'}
-        click={() => RefreshPrices()}
-      />
-    </>
+    </div>
   );
 };
 

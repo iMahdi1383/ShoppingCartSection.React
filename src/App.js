@@ -5,8 +5,10 @@ import ProductList from './Components/ProductList/ProductList';
 const App = () => {
   return (
     <div className="container">
-      <Header title="Courses Shop"/>
-      <ProductList />
+      <div className="box">
+        <Header title="Shopping Cart" />
+        <ProductList />
+      </div>
     </div>
   );
 };
