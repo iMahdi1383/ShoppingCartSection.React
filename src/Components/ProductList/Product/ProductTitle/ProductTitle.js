@@ -13,7 +13,7 @@ const ProductTitle = (props) => {
   const FocusOnInputProductTitle = async (productId) => {
     await SetInputActived(true);
     const inputElement = document.getElementById(
-      'inputProduct' + productId + 'Title',
+      `inputProduct ${props.product.id} Title`,
     );
     inputElement.focus();
     inputElement.setSelectionRange(0, inputElement.value.length);
@@ -25,7 +25,7 @@ const ProductTitle = (props) => {
 
   const CheckErrorInputProductTitle = () => {
     if (newProductTitle === '')
-    ShowErrorInputProductTitle(props.product.id, 'Enter a Title Here');
+      ShowErrorInputProductTitle(props.product.id, 'Enter a Title Here');
     else SubmitChangeTitle(props.product.id, newProductTitle);
   };
   const ShowErrorInputProductTitle = async (productId, message) => {
@@ -42,7 +42,7 @@ const ProductTitle = (props) => {
       <input
         placeholder="Course Title"
         className={Styles.title}
-        id={'inputProduct' + props.product.id + 'Title'}
+        id={`inputProduct ${props.product.id} Title`}
         type="text"
         onChange={(e) => SetNewProductTitle(e.target.value)}
         onBlur={() => CheckErrorInputProductTitle()}

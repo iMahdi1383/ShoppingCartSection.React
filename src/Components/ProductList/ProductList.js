@@ -27,7 +27,6 @@ const ProductList = () => {
     setProducts(() => copyOfProducts);
     if (selectedProduct.quantity === 0) DeleteProduct(id);
   };
-  //todo:
   const ChangeProductTitle = (id, newTitle, HideInputAndShowProductName) => {
     const copyOfProducts = [...products];
     const selectedProduct = copyOfProducts.find((product) => product.id === id);
@@ -36,21 +35,33 @@ const ProductList = () => {
     HideInputAndShowProductName();
   };
 
-  return (
-    <div className={Styles.productList}>
-      {products.map((product) => {
-        return (
-          <Product
-            product={product}
-            key={product.id}
-            onIncrease={() => IncreaseProductQuantity(product.id)}
-            onDecrease={() => DecreaseProductQuantity(product.id)}
-            onChangeTitle={ChangeProductTitle}
-          />
-        );
-      })}
-    </div>
-  );
+  const RenderProducts = () => {
+    return (
+      <div className={Styles.productList}>
+        {products.map((product) => {
+          return (
+            <Product
+              product={product}
+              key={product.id}
+              onIncrease={() => IncreaseProductQuantity(product.id)}
+              onDecrease={() => DecreaseProductQuantity(product.id)}
+              onChangeTitle={ChangeProductTitle}
+            />
+          );
+        })}
+      </div>
+    );
+  }
+
+  const RenderEmptyShoppingCart = () => {
+    return (
+      <>
+        <p>There is no products in cart. go shopping!</p>
+      </>
+    );
+  };
+
+  return <>{!products.length ? RenderEmptyShoppingCart() : RenderProducts()}</>;
 };
 
 export default ProductList;
