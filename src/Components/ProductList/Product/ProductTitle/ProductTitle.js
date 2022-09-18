@@ -1,5 +1,5 @@
 import Styles from './ProductTitle.module.css';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 const ProductTitle = (props) => {
   const [inputActived, SetInputActived] = useState(false);

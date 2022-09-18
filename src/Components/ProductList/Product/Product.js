@@ -1,10 +1,10 @@
+import React from 'react';
 import Styles from './Product.module.css';
 import ProductTitle from './ProductTitle/ProductTitle';
-import IcoPlus from '../../Icon/IcoPlus';
+import { HiPlus } from 'react-icons/hi';
 import RemoveIcon from './RemoveIcon';
 
 const Product = (props) => {
-
   const WhichRemoveIcon = (quantity) => {
     if (quantity > 1) return 'minus';
     else return 'trash';
@@ -24,7 +24,7 @@ const Product = (props) => {
         </button>
         <span> {props.product.quantity} </span>
         <button onClick={props.onIncrease} className={Styles.increase}>
-          <IcoPlus stroke={'#b3b395'} fill={'rgba(255,255,255,0.1)'} />
+          <HiPlus />
         </button>
       </div>
     </div>
