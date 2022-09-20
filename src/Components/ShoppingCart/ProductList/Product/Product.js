@@ -4,7 +4,6 @@ import ProductTitle from './ProductTitle/ProductTitle';
 import { HiPlus, HiOutlineTrash, HiOutlineMinus } from 'react-icons/hi';
 
 const Product = (props) => {
-
   return (
     <div className={Styles.product}>
       <ProductTitle
@@ -14,7 +13,12 @@ const Product = (props) => {
       <p>{props.product.price} $</p>
       <br />
       <div className={Styles.buttons}>
-        <button onClick={props.onDecrease} className={Styles.delete}>
+        <button
+          onClick={props.onDecrease}
+          className={`${Styles.delete} ${
+            props.product.quantity < 2 && Styles.trash
+          }`}
+        >
           {props.product.quantity > 1 ? <HiOutlineMinus /> : <HiOutlineTrash />}
         </button>
         <span> {props.product.quantity} </span>

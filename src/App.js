@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Header from './Components/Header/Header';
-import ProductList from './Components/ProductList/ProductList';
+import Header from './Components/ShoppingCart/Header/Header';
+import ProductList from './Components/ShoppingCart/ProductList/ProductList';
 
 const App = () => {
   return (
