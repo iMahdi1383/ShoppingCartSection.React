@@ -3,26 +3,26 @@ import Styles from './Product.module.css';
 import ProductTitle from './ProductTitle/ProductTitle';
 import { HiPlus, HiOutlineTrash, HiOutlineMinus } from 'react-icons/hi';
 
-const Product = (props) => {
+const Product = ({product,onChangeTitle,onDecrease,onIncrease}) => {
   return (
     <div className={Styles.product}>
       <ProductTitle
-        product={props.product}
-        onChangeTitle={props.onChangeTitle}
+        product={product}
+        onChangeTitle={onChangeTitle}
       />
-      <p>{props.product.price} $</p>
+      <p>{product.price} $</p>
       <br />
       <div className={Styles.buttons}>
         <button
-          onClick={props.onDecrease}
+          onClick={onDecrease}
           className={`${Styles.delete} ${
-            props.product.quantity < 2 && Styles.trash
+            product.quantity < 2 && Styles.trash
           }`}
         >
-          {props.product.quantity > 1 ? <HiOutlineMinus /> : <HiOutlineTrash />}
+          {product.quantity > 1 ? <HiOutlineMinus /> : <HiOutlineTrash />}
         </button>
-        <span> {props.product.quantity} </span>
-        <button onClick={props.onIncrease} className={Styles.increase}>
+        <span> {product.quantity} </span>
+        <button onClick={onIncrease} className={Styles.increase}>
           <HiPlus />
         </button>
       </div>

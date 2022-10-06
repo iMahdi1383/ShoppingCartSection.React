@@ -2,12 +2,12 @@ import React from 'react';
 import Styles from './ProductList.module.css';
 import Product from './Product/Product';
 
-const ProductList = (props) => {
-  const products = props.products;
-  const IncreaseProductQuantity = props.IncreaseProductQuantity;
-  const DecreaseProductQuantity = props.DecreaseProductQuantity;
-  const ChangeProductTitle = props.ChangeProductTitle;
-
+const ProductList = ({
+  products,
+  IncreaseProductQuantity,
+  DecreaseProductQuantity,
+  ChangeProductTitle,
+}) => {
   const RenderProducts = () => {
     return (
       <div className={Styles.productList}>
